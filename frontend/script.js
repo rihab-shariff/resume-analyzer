@@ -86,7 +86,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         try {
             // REST API Call
-            const response = await fetch("https://resume-analyzer-6cu3.onrender.com", {
+            const response = await fetch("https://resume-analyzer-6cu3.onrender.com/api/analyze", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
@@ -95,7 +95,7 @@ document.addEventListener("DOMContentLoaded", () => {
             });
 
             if (!response.ok) {
-                throw new Error("Server returned an error. Make sure the Spring Boot backend is running.");
+                throw new Error("Server returned an error. Make sure the backend server is running.");
             }
 
             const data = await response.json();
@@ -114,7 +114,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         } catch (error) {
             console.error("Analysis failed:", error);
-            alert("Unable to reach the backend server. Make sure your Java Spring Boot application is started on http://localhost:8080!\n\nError details: " + error.message);
+            alert("Unable to reach the backend server. Make sure your backend service at https://resume-analyzer-6cu3.onrender.com is active!\n\nNote: Free instance databases/web services on Render can go to sleep and take 1-2 minutes to spin back up on the first request.\n\nError details: " + error.message);
             loadingSection.classList.add("hidden");
             analyzeBtn.disabled = false;
         }
@@ -305,7 +305,7 @@ ${data.suggestions.map((s, index) => `${index + 1}. ${s}`).join("\n")}
 
 ==================================================
         Mini Project submission for evaluation.
-       Built with Spring Boot REST API & HTML/CSS/JS.
+       Built with JAVA & HTML/CSS/JS.
 ==================================================`;
 
         // Create Blob and trigger file download
