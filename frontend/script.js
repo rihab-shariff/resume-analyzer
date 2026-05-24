@@ -86,7 +86,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         try {
             // REST API Call
-            const response = await fetch("http://localhost:8080/api/analyze", {
+            const response = await fetch("https://resume-analyzer-6cu3.onrender.com", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
